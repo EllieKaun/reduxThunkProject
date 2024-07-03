@@ -6,13 +6,14 @@ const Home = () => {
 
     return (
         <>
+            Home(Aelina)
             <h1>Home</h1>
             <br />
-       <div>Card</div>
+            <div>Card</div>
             <br />
             <Counter />
         </>
     )
 }
 
-export default Home
+export default Home 
