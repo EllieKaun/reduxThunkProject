@@ -25,7 +25,7 @@ export const fetchData = () => {
     return async (dispatch: Dispatch) => {
         dispatch(fetchDataRequest())
         try{
-            const response = await fetch('')
+            const response = await fetch('/src/features/data/model/data.json')
             dispatch(fetchDataSuccess(response))
         }catch(error){
             dispatch(fetchDataError(error as string))
