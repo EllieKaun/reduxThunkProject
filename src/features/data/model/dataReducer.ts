@@ -7,17 +7,17 @@ const initialState = {
     error: null
 }
 
-const dataRequest = (state = initialState, action: AnyAction) => {
+const dataReducer = (state = initialState, action: AnyAction) => {
     switch (action.type){
-        case FETCH_DATA_REQUEST:
-            return {...state, status: 'loading'}
-        case FETCH_DATA_SUCCESS:
+        case FETCH_DATA_REQUEST: 
+            return {...state, status: 'loading' }
+        case FETCH_DATA_SUCCESS: 
             return {...state, status: 'succesed', items: action.payload}
-        case FETCH_DATA_ERROR:
+        case FETCH_DATA_ERROR: 
             return {...state, status: 'error', error: action.payload}
-        default:
+        default: 
             return state
     }
 }
 
-export default dataReducer;
+export default dataReducer

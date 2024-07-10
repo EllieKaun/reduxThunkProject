@@ -1,6 +1,5 @@
 import Counter from "../../../features/counter/view/Counter"
-
-
+import Data from "../../../features/data/view"
 const Home = () => {
 
 
@@ -12,6 +11,7 @@ const Home = () => {
             <div>Card</div>
             <br />
             <Counter />
+            <Data />
         </>
     )
 }
