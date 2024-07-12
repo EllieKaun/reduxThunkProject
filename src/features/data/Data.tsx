@@ -6,7 +6,7 @@ import { fetchData } from "./model/dataAction"
 const Data = () => {
 
     const {items, error, status} = useSelector((state) => state.data)
-    console.log(status)
+
 
     const dispatch = useDispatch()
 

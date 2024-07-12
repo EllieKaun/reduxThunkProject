@@ -8,7 +8,6 @@ const initialState = {
 }
 
 const MSIReducer =(state = initialState, action: AnyAction) => {
-    console.log(action.payload)
     switch(action.type){
         case FETCH_DATA_REQUEST:
             return {...state, status: 'loading'}

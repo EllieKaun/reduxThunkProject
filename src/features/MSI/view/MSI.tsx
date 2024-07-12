@@ -6,8 +6,7 @@ import { fetchData } from "../model/MSIAction"
 
 const MSI = () => {
 
-    const {items, error, status} = useSelector((state: any) => state.data2)
-    console.log(items, 213)
+    const {items, status} = useSelector((state: any) => state.data2)
 
     const dispatch = useDispatch()
 

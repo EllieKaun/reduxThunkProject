@@ -1,19 +1,19 @@
-import Counter from "../../../features/counter/view/Counter"
-import Data from "../../../features/data"
+import TopFeature from "../../../features/topFeatures/view/TopFeature"
+
 
 const Home = () => {
 
 
+
     return (
         <>
-            <h1>Home</h1>
-            <br />
-       <div>Card</div>
-            <br />
-            <Counter />
-            <Data></Data>
+            <TopFeature type="manga"/>
+            <TopFeature type="anime"/>
         </>
     )
 }
 
 export default Home
+
+
+
