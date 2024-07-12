@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
+import {baseUrl} from './shared/lib/constants'
 
 function App() {
 // 

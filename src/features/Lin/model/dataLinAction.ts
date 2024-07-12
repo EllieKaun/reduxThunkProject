@@ -18,12 +18,13 @@ const fetchDataError = (error: string) => ({
     payload: error
 })
 
-export const fetchData = () => {
+export const fetchDataLin = () => {
     return async (dispatch: Dispatch) => {
         dispatch(fetchDataRequest())
         try{
-            const response = await fetch('/scr/features/data/model/data.json')
-            dispatch(fetchDataSuccess(response))
+            const response = await fetch('/src/features/Lin/model/dataLin.json')
+            const resp = await response.json()
+            dispatch(fetchDataSuccess(resp))
         }catch(error) {
             dispatch(fetchDataError(error as string))
         }

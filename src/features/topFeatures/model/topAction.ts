@@ -1,4 +1,5 @@
 import { Dispatch } from "redux"
+import { fetcher } from "../../../shared/lib/fetcher"
 
 export const FETCH_DATA_REQUEST = 'FETCH_DATA_REQUEST'
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
@@ -18,12 +19,12 @@ const fetchDataError = (error: string) => ({
     payload: error
 })
 
-export const fetchData = () => {
+export const fetchTopData = (endpoint:string) => {
     return async (dispatch: Dispatch) => {
         dispatch(fetchDataRequest())
         try{
-            const response = await fetch('/scr/features/data/model/data.json')
-            dispatch(fetchDataSuccess(response))
+            const response = await fetcher(endpoint)
+             dispatch(fetchDataSuccess(response))
         }catch(error) {
             dispatch(fetchDataError(error as string))
         }
