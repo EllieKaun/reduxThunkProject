@@ -1,0 +1,19 @@
+.wrapper{
+    width: 150px;
+    height: 170px;
+    padding: 16px 8px;
+    border: 1px solid;
+    border-radius: 8px;
+    .img {
+        object-fit: cover;
+        height: 50%;
+        width: 100%;
+    }
+    .title {
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .year {
+        font-size: 14px;
+    }
+}
