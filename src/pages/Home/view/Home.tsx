@@ -1,19 +1,11 @@
-import Counter from "../../../features/counter/view/Counter"
-import Data from "../../../features/data/view"
+import TopFeature from '../../../features/topFeature/view/TopFeature';
+import Info from '../../../features/info';
 const Home = () => {
 
 
-    return (
-        <>
-            Home(Aelina)
-            <h1>Home</h1>
-            <br />
-            <div>Card</div>
-            <br />
-            <Counter />
-            <Data />
-        </>
-    )
+  return (
+    <>Home</>
+  )
 }
 
-export default Home 
+export default Home;

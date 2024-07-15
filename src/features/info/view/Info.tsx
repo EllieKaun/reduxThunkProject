@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchData } from '../model/dataAction';
+import { fetchData } from '../model/infoAction'
 
-const Data = () => {
-  const { items, error, status } = useSelector((state) => state.data);
+const Info = () => {
+  const { items, error, status } = useSelector((state) => state.info);
   
 
   const dispatch = useDispatch();
@@ -14,6 +14,10 @@ const Data = () => {
     }
   }, [status, dispatch]);
 
-  return <></>;
+  return <>
+        <div>
+            {items?.company}
+        </div>
+  </>;
 };
-export default Data;
+export default Info;

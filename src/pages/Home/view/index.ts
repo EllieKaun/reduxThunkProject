@@ -1,3 +1,3 @@
-import Data from "../../../features/data/view/Data"
+import Home from './Home'
 
-export default Data
+export default Home
