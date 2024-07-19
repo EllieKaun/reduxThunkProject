@@ -1,8 +1,7 @@
-import classes from "./CustomCard.module.scss"
 import { useNavigate } from "react-router-dom"
-import { FC } from "react"
-
-interface CustomCardProps{
+import { FC } from 'react'
+import classes from './CustomCard.module.scss'
+interface CustomCardProps {
     id: number
     img: string
     title_en: string
@@ -14,10 +13,10 @@ interface CustomCardProps{
 
 const CustomCard:FC<CustomCardProps> = (props) => {
 
+
     const navigate = useNavigate()
 
-
-    const {
+    const{
         id,
         img,
         title_en,
@@ -25,26 +24,24 @@ const CustomCard:FC<CustomCardProps> = (props) => {
         year,
         score,
         type
-    } = props
+     } = props
+    
 
-    const handleClick=()=>{
-        console.log('hello')
+     const handleClick = () => {
+        console.log('hello', id )
         navigate(`/${type}/${id}`)
-    }
-    return(
-        <>
-            <div className={classes.wrapper} onClick={handleClick}>
-                <img className={classes.img} src={img} alt={title_en} />
-                <div className={classes.TitleBlock}>
-                    <p className={classes.title}>{title_en}</p>
-                    <p className={classes.title}>{title_jp}</p>
-                </div>
-                <p className={classes.year}>{year}</p>
-                <div className={classes.score}>{score}</div>
-            
+     }
+
+    return (
+        <div className={classes.wrapper} onClick={handleClick}>
+            <img className={classes.img} src={img} alt={title_en} />
+            <div>
+            <p className={classes.title}>{title_en}</p>
+            <p className={classes.title}>{title_jp}</p>
             </div>
-        </>
+            <p className={classes.year}>{year}</p>
+            <div className={classes.score}>{score}</div>
+        </div>
     )
 }
-
 export default CustomCard

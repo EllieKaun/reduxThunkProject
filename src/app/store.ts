@@ -2,17 +2,19 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import counterReducer from '../features/counter/model/counterReducer'
 import { thunk } from 'redux-thunk'
 import dataReducer from '../features/data/model/dataReducer'
-import MSIReducer from '../features/MSI/model/MSIReducer'
-import topReducer from '../features/topFeatures/model/topReducer'
-import { detailReducer }   from '../features/detailFeature/model/DetailReducer'
-
+import contactReducer from '../features/contact/model/contactReducer'
+import topReducer from '../features/topFeature/model/topReducer'
+import infoReducer from '../features/info/model/infoReducer'
+import { detailReducer } from '../features/detailFeature/model/detailReducer'
 
 const rootReducer = combineReducers({
     counter: counterReducer,
     data: dataReducer,
-    data2: MSIReducer,
+    contact: contactReducer,
+    info: infoReducer,
     top: topReducer,
-    detail: detailReducer,
+    detail: detailReducer
+
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))

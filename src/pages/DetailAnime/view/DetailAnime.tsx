@@ -1,18 +1,15 @@
 import { useLocation } from "react-router-dom"
-import DetailFeature  from "../../../features/detailFeature"
+import DetailFeature from "../../../features/detailFeature/view/DetailFeature"
 
 const DetailAnime = () => {
 
     const location = useLocation()
     const id = location.pathname.split("/").pop()
-    console.log(location.pathname.split("/").pop())
 
-    return(
+    return (
         <>
-            <div>
-                <DetailFeature type="anime" id={id ? id : ''}/>
-                
-            </div>
+            detail anime
+            <DetailFeature type="anime" id={id || ''}/>
         </>
     )
 }

@@ -8,7 +8,6 @@ const Contact = () => {
 
 const {items, error, status} = useSelector((state) => state.contact)
 
-
 const dispatch = useDispatch()
 useEffect(() => {
     if(status === 'idle') {

@@ -1,14 +1,10 @@
-import TopFeature from "../../../features/topFeatures/view/TopFeature"
-
-
+import TopFeature from "../../../features/topFeature/view/TopFeature"
 
 const TopAnime = () => {
 
 
-    return(
-        <>
-            <TopFeature type="anime"/>
-        </>
+    return (
+        <TopFeature type="anime"/>
     )
 }
 

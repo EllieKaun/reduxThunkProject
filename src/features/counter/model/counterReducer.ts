@@ -2,21 +2,21 @@ import { INCREMENT, DECREMENT } from "./counterAction"
 import { AnyAction } from "redux"
 
 
-interface CounterState{
+interface CounterState{           
     countValue: number
 }
 
-const initialState: CounterState = {
-    countValue: 0
+const initialState: CounterState = { //изначальное значение 
+    countValue: 0 //значение
 }
 
-const counterReducer = (state = initialState, action: AnyAction) => {
+const counterReducer = (state = initialState, action: AnyAction) => { // функция меняющая значение
     switch (action.type){
-        case INCREMENT:
+        case INCREMENT: // если инкременет то значение + 1
             return {...state, countValue: state.countValue + 1}
-        case DECREMENT: 
+        case DECREMENT:  // если декремент то значение - 1
             return {...state, countValue: state.countValue - 1}
-        default: 
+        default: // значние по умолчанию
             return state
     }
 }

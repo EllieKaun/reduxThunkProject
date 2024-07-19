@@ -1,14 +1,10 @@
-import TopFeature from "../../../features/topFeatures/view/TopFeature"
-
-
+import TopFeature from "../../../features/topFeature/view/TopFeature"
 
 const TopManga = () => {
 
 
-    return(
-        <>
-            <TopFeature type="manga"/>
-        </>
+    return (
+        <TopFeature type="manga"/>
     )
 }
 

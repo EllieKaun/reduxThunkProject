@@ -1,20 +1,15 @@
-
+import DetailFeature from "../../../features/detailFeature/view/DetailFeature"
 import { useLocation } from "react-router-dom"
-import DetailFeature  from "../../../features/detailFeature"
-
-
 
 const DetailAuthors = () => {
 
     const location = useLocation()
     const id = location.pathname.split("/").pop()
-    
-    return(
+
+    return (
         <>
-        <div>
-                <DetailFeature type="people" id={id ? id : ''}/>
-                
-            </div>
+        detail people
+        <DetailFeature type="people" id={id ? id : ''}/>
         </>
     )
 }
