@@ -9,6 +9,7 @@ interface CustomCardProps{
     title_jp: string
     year: number
     score: number
+    type: string
 }
 
 const CustomCard:FC<CustomCardProps> = (props) => {
@@ -21,11 +22,17 @@ const CustomCard:FC<CustomCardProps> = (props) => {
         title_en,
         title_jp,
         year,
-        score
+        score,
+        type
     } = props
 
+
+    const handleClick = () => {
+        navigate(`/${type}/${id}`)
+    }
+
     return(
-        <div className={classes.wrapper} onClick={() => navigate(id)}>
+        <div className={classes.wrapper} onClick={handleClick}>
             <img className={classes.img} src={img} alt={title_en} />
             <div>
                 <p className={classes.title}>{title_en}</p>
