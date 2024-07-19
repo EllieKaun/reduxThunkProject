@@ -4,7 +4,11 @@ const Home = () => {
 
 
   return (
-    <>Home</>
+    <>
+        Home
+    <Info/> 
+    </>
+
   )
 }
 

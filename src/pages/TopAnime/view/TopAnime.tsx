@@ -1,13 +1,9 @@
-import TopFeature from "../../../features/topFeature/view/TopFeature"
-
+import TopFeature from '../../../features/topFeature/view/TopFeature';
 
 const TopAnime = () => {
 
 
+  return <TopFeature type="anime" />;
+};
 
-    return (
-        <TopFeature type="anime"/>
-    )
-}
-
-export default TopAnime
+export default TopAnime;

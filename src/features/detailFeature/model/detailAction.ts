@@ -1,8 +1,8 @@
 import { Dispatch } from "redux"
 import { fetcher } from "../../../shared/lib/fetcher"
-export const FETCH_DATA_REQUEST = 'FETCH_TOP_DATA_REQUEST'
-export const FETCH_DATA_SUCCESS = 'FETCH_TOP_DATA_SUCCESS'
-export const FETCH_DATA_ERROR = 'FETCH_TOP_DATA_ERROR'
+export const FETCH_DATA_REQUEST = 'FETCH_DETAIL_DATA_REQUEST'
+export const FETCH_DATA_SUCCESS = 'FETCH_DETAIL_DATA_SUCCESS'
+export const FETCH_DATA_ERROR = 'FETCH_DETAIL_DATA_ERROR'
 
 const fetchDataRequest = () => ({
     type: FETCH_DATA_REQUEST 
@@ -18,7 +18,7 @@ const fetchDataError = (error: string) => ({
     payload: error
 })
 
-export const fetchTopData = (endpoint: string) => {
+export const fetchDetailData = (endpoint: string) => {
     return async (dispatch: Dispatch) => {
         dispatch(fetchDataRequest())
         try{
