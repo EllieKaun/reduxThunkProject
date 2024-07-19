@@ -1,18 +1,15 @@
 import TopFeature from "../../../features/topFeatures/view/TopFeature"
 
 
-const Home = () => {
+
+const TopManga = () => {
 
 
-
-    return (
+    return(
         <>
-            nigga
+            <TopFeature type="manga"/>
         </>
     )
 }
 
-export default Home
-
-
-
+export default TopManga

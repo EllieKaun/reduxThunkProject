@@ -1,18 +1,15 @@
 import TopFeature from "../../../features/topFeatures/view/TopFeature"
 
 
-const Home = () => {
+
+const TopAnime = () => {
 
 
-
-    return (
+    return(
         <>
-            nigga
+            <TopFeature type="anime"/>
         </>
     )
 }
 
-export default Home
-
-
-
+export default TopAnime

@@ -1,5 +1,6 @@
 import MSII from "../../../features/MSI/view/MSI"
 import Data from "../../../features/MSI"
+import CustomCard  from "../../../shared/UI/CustomCard"
 
 const MSIpage = () => {
 
@@ -8,6 +9,7 @@ const MSIpage = () => {
         <>
             <MSII />
             <Data></Data>
+            <CustomCard />
         </>
     )
 }
