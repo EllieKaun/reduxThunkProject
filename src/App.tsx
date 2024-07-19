@@ -24,7 +24,7 @@ function App() {
         <Route path="/people/:id" element={<DetailAuthors />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

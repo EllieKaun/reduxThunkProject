@@ -1,29 +1,24 @@
 import { AnyAction } from "redux";
-import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_ERROR } from "./topAction";
+import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_FAILURE } from "./infoAction";
+
 
 const initialState = {
-    items: {
-        data: [],
-        pagination: {
-            current_page: 0,
-            has_next_page: true,
-        }
-    },
+    items: [],
     status: 'idle',
     error: null
-};
+}
 
-const topReducer = (state = initialState, action: AnyAction) => {
+const infoReducer = (state = initialState, action: AnyAction) => {
     switch (action.type){
         case FETCH_DATA_REQUEST: 
             return {...state, status: 'loading' }
         case FETCH_DATA_SUCCESS: 
             return {...state, status: 'succesed', items: action.payload}
-        case FETCH_DATA_ERROR: 
+        case FETCH_DATA_FAILURE: 
             return {...state, status: 'error', error: action.payload}
         default: 
             return state
     }
 }
 
-export default topReducer
+export default infoReducer

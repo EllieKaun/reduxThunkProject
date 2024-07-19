@@ -1,6 +1,5 @@
 import { Dispatch } from "redux"
 import { fetcher } from "../../../shared/lib/fetcher"
-
 export const FETCH_DATA_REQUEST = 'FETCH_TOP_DATA_REQUEST'
 export const FETCH_DATA_SUCCESS = 'FETCH_TOP_DATA_SUCCESS'
 export const FETCH_DATA_ERROR = 'FETCH_TOP_DATA_ERROR'

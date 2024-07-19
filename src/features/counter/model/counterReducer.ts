@@ -2,7 +2,7 @@ import { INCREMENT, DECREMENT } from "./counterAction"
 import { AnyAction } from "redux"
 
 
-interface CounterState{
+interface CounterState{           
     countValue: number
 }
 

@@ -4,20 +4,17 @@ import { fetchData } from "../model/dataAction"
 
 
 const Data = () => {
+  const { items, error, status } = useSelector((state) => state.data);
+  
 
-    const {items, error, status} = useSelector((state) => state.data)
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchData());
+    }
+  }, [status, dispatch]);
 
-    useEffect(() => {
-        if(status === 'idle'){
-            dispatch(fetchData())
-        }
-    }, [status, dispatch])
-    
-    return (
-        <></>
-    )
-}
-
-export default Data
+  return <></>;
+};
+export default Data;
