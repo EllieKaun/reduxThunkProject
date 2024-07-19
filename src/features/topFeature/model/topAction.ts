@@ -1,8 +1,11 @@
 import { Dispatch } from "redux"
 import { fetcher } from "../../../shared/lib/fetcher"
+
+
 export const FETCH_DATA_REQUEST = 'FETCH_TOP_DATA_REQUEST'
 export const FETCH_DATA_SUCCESS = 'FETCH_TOP_DATA_SUCCESS'
 export const FETCH_DATA_ERROR = 'FETCH_TOP_DATA_ERROR'
+export const CLEAR_DATA = 'CLEAR_TOP_DATA'
 
 const fetchDataRequest = () => ({
     type: FETCH_DATA_REQUEST 
@@ -16,6 +19,10 @@ const fetchDataSuccess = (data: any) => ({
 const fetchDataError = (error: string) => ({
     type: FETCH_DATA_ERROR,
     payload: error
+})
+
+export const clearTopData = () => ({
+    type: CLEAR_DATA
 })
 
 export const fetchTopData = (endpoint: string) => {
