@@ -3,59 +3,76 @@ import { useEffect, FC, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchTopData, clearTopData } from '../model/topAction';
 import CustomCard from '../../../shared/UI/CustomCard/view/CustomCard';
-import classes from './TopFeature.module.scss';
+import classes from './TopFeature.module.scss'
+import { useCallback } from 'react';
 
 interface TopFeatureProps {
   type: string;
 }
 
+const currentUrl = window.location.href;
+console.log(currentUrl)
+
 const TopFeature: FC<TopFeatureProps> = ({ type }) => {
   const dispatch = useDispatch();
-  const { data, pagination, status } = useSelector((state) => state.top);
+  const { data, pagination } = useSelector((state) => state.top);
 
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchTopData(`top/${type}?page=1`));
-    }
-  }, [dispatch, type, status]);
-
-  const [searchData, setSearchData] = useState<string>('')
-  const [isSearchActive, setIsSearchActive] = useState(false)
+  const [searchData, setSearchData] = useState<string>('');
+  const [isSearchActive, setIsSearchActive] = useState(false);
 
   const fetchMoreData = () => {
     const nextPage = pagination.current_page + 1;
-    if(isSearchActive){
-      dispatch(fetchTopData(`${type}?=${searchData}&page=${nextPage}`))
+    if (isSearchActive) {
+      dispatch(fetchTopData(`${type}?q=${searchData}&page=${nextPage}`));
+    } else {
+      dispatch(fetchTopData(`top/${type}?page=${nextPage}`));
     }
-    dispatch(fetchTopData(`top/${type}?page=${nextPage}`));
   };
 
-  const handleSearch = () => {
-    dispatch(clearTopData())
-    setIsSearchActive(true)
-    dispatch(fetchTopData(`${type}?=${searchData}`))
-  }
+  const handleSearch = useCallback(() => {
+    dispatch(clearTopData());
+    setIsSearchActive(true);
+    const newUrl = `/${type}?q=${searchData}`;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+    dispatch(fetchTopData(`${type}?q=${searchData}`));
+  }, [dispatch, searchData, type]);
 
   const handleRemoveSearch = () => {
-    dispatch(clearTopData())
-    setIsSearchActive(false)
-    dispatch(fetchTopData(`${type}?page=1`))
-  }
+    dispatch(clearTopData());
+    setIsSearchActive(false);
+    const newUrl = `/${type}?page=1`;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+    dispatch(fetchTopData(`top/${type}?page=1`));
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q');
+    const page = params.get('page') || '1';
+
+    if (query) {
+      setSearchData(query);
+      setIsSearchActive(true);
+      dispatch(fetchTopData(`${type}?q=${query}&page=${page}`));
+    } else {
+      dispatch(fetchTopData(`top/${type}?page=${page}`));
+    }
+  }, [dispatch, type]);
 
   return (
     <>
       <div>
-        <input type="text" name="" id="" onChange={(e)=> setSearchData(e.target.value)}/>
+        <input value={searchData} onChange={(e) => setSearchData(e.target.value)} type="text" />
         <button onClick={handleSearch}>Поиск</button>
-        {isSearchActive && <button onClick={handleRemoveSearch} >Сбросить</button>}
+        {isSearchActive && <button onClick={handleRemoveSearch}>Сбросить</button>}
       </div>
       <InfiniteScroll
-        dataLength={data?.length} // текущая длинна массива !динамическая
-        next={fetchMoreData}
-        hasMore={pagination.has_next_page}
-        loader={<h4>Loading...</h4>}
+        dataLength={data.length} 
+        next={fetchMoreData} 
+        hasMore={pagination.has_next_page} 
+        loader={<h4>Loading...</h4>} 
       >
-      <div className={classes.wrapper}>
+        <div className={classes.wrapper}>
           {data.map((item) => (
             <CustomCard
               key={item.mal_id}
@@ -68,10 +85,11 @@ const TopFeature: FC<TopFeatureProps> = ({ type }) => {
               type={type}
             />
           ))}
-      </div>
+        </div>
       </InfiniteScroll>
     </>
   );
 };
+
 
 export default TopFeature;

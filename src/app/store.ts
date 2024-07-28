@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
     top: topReducer,
     detail: detailReducer
 
+
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk))
