@@ -1,13 +1,21 @@
-import { AnyAction } from "redux";
-import { FETCH_DATA_REQUEST,FETCH_DATA_SUCCESS,FETCH_DATA_ERROR } from "./dataAction";
 
-const initialState = {
+import { AnyAction } from "redux";
+import { FETCH_DATA_REQUEST,FETCH_DATA_SUCCESS,FETCH_DATA_ERROR } from "./DeatailAction";
+
+
+interface InitialInterface {
+    items: any
+    status: 'idle' | 'loading' | 'succsess' | 'error'
+    error: any
+}
+
+const initialState:InitialInterface = {
     items: [],
     status: 'idle',
     error: null
 }
 
-const dataReducer =(state = initialState, action: AnyAction) => {
+export const detailReducer = (state=initialState, action: AnyAction) => {
     switch(action.type){
         case FETCH_DATA_REQUEST:
             return {...state, status: 'loading'}
@@ -18,6 +26,5 @@ const dataReducer =(state = initialState, action: AnyAction) => {
         default:
             return state
     }
-}
 
-export default dataReducer
+}

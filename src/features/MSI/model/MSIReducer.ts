@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { FETCH_DATA_REQUEST,FETCH_DATA_SUCCESS,FETCH_DATA_ERROR } from "./dataAction";
+import { FETCH_DATA_REQUEST, FETCH_DATA_SUCCESS, FETCH_DATA_ERROR } from "./MSIAction";
 
 const initialState = {
     items: [],
@@ -7,7 +7,7 @@ const initialState = {
     error: null
 }
 
-const dataReducer =(state = initialState, action: AnyAction) => {
+const MSIReducer =(state = initialState, action: AnyAction) => {
     switch(action.type){
         case FETCH_DATA_REQUEST:
             return {...state, status: 'loading'}
@@ -20,4 +20,4 @@ const dataReducer =(state = initialState, action: AnyAction) => {
     }
 }
 
-export default dataReducer
+export default MSIReducer

@@ -1,4 +1,3 @@
-import Data from "./view/Data";
-
+import Data from "./Data"
 
 export default Data

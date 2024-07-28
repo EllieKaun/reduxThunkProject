@@ -12,7 +12,7 @@ import DetailAuthors from "./pages/DetailAuthors"
 function App() {
 
   return (
-    <>
+
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/contact" element={<Contact />}/>
@@ -22,8 +22,8 @@ function App() {
         <Route path="/anime/:id" element={<DetailAnime />}/>
         <Route path="/manga/:id" element={<DetailManga />}/>
         <Route path="/people/:id" element={<DetailAuthors />} />
+        <Route path="/"></Route>
       </Routes>
-    </>
   );
 }
 

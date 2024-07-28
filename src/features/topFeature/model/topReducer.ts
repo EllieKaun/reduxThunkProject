@@ -12,7 +12,6 @@ const initialState = {
 };
 
 const topReducer = (state = initialState, action: AnyAction) => {
-    console.log(action.payload, 'action payload')
     switch (action.type){
         case FETCH_DATA_REQUEST: 
             return {...state, status: 'loading' }
